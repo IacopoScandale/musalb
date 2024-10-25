@@ -1,0 +1,1 @@
+MUSALB_HIDDEN_FOLDER: str = ".musalb"
