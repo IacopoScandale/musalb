@@ -1,5 +1,6 @@
 from argparse import ArgumentParser, Namespace
 from .init_comm import init_comm
+from .reformat_comm import reformat_comm
 
 
 def parse_arguments() -> Namespace:
@@ -37,6 +38,12 @@ def parse_arguments() -> Namespace:
     default=".",  # Default to current directory
     help="Path to the album directory (default: current directory)"
   )
+  reformat_parser.add_argument(
+    '-q', '--quiet', 
+    action='store_true',
+    default=False,
+    help="Suppress output verbosity.",
+  )
   
   args = parser.parse_args()
   return args
@@ -52,4 +59,4 @@ def main() -> None:
   if args.command == "init":
     init_comm(args.directory)
   elif args.command == "reformat":
-    raise NotImplementedError
+    reformat_comm(args.directory, args.quiet)
