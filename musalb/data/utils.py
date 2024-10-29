@@ -17,7 +17,7 @@ def print_enumerate_audio_tracks() -> None:
   prints and enumerates every audio track in the current directory
   """
   counter: int = 0
-  for filename in os.listdir():
+  for filename in sorted(os.listdir()):
     if filename.endswith(SUPPORTED_AUDIO_EXT):
       counter += 1
       print(f"{counter:>4}. {filename}")

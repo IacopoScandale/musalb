@@ -1,6 +1,7 @@
 from argparse import ArgumentParser, Namespace
 from .init_comm import init_comm
 from .reformat_comm import reformat_comm
+from .enumerate_comm import enumerate_comm
 
 
 def parse_arguments() -> Namespace:
@@ -44,6 +45,12 @@ def parse_arguments() -> Namespace:
     default=False,
     help="Suppress output verbosity.",
   )
+
+  # enumerate subcommand
+  enumerate_parser = subparsers.add_parser(
+    "enumerate",
+    help="adds track numbers in alphabetical order"
+  )
   
   args = parser.parse_args()
   return args
@@ -60,3 +67,5 @@ def main() -> None:
     init_comm(args.directory)
   elif args.command == "reformat":
     reformat_comm(args.directory, args.quiet)
+  elif args.command == "enumerate":
+    enumerate_comm()

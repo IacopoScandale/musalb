@@ -29,7 +29,7 @@ def apply_metadata(musalb_metadata_json: dict, quiet: bool) -> None:
   ffmpeg_command += ' "{out_track}"'
 
   # apply ffmpeg command to every file
-  for filename in os.listdir():
+  for filename in sorted(os.listdir()):
     if filename.endswith(SUPPORTED_AUDIO_EXT):
       tmp_filename: str = f"tmp_{filename}"
       cur_command = ffmpeg_command.format(
