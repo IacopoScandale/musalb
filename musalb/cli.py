@@ -2,6 +2,7 @@ from argparse import ArgumentParser, Namespace
 from .init_comm import init_comm
 from .reformat_comm import reformat_comm
 from .enumerate_comm import enumerate_comm
+from .titles_comm import titles_comm
 
 
 def parse_arguments() -> Namespace:
@@ -51,6 +52,12 @@ def parse_arguments() -> Namespace:
     "enumerate",
     help="adds track numbers in alphabetical order"
   )
+
+  # titles subcommand
+  titles_parser = subparsers.add_parser(
+    "titles",
+    help="filename title --> metadata track title"
+  )
   
   args = parser.parse_args()
   return args
@@ -69,3 +76,5 @@ def main() -> None:
     reformat_comm(args.directory, args.quiet)
   elif args.command == "enumerate":
     enumerate_comm()
+  elif args.command == "titles":
+    titles_comm()

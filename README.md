@@ -26,3 +26,5 @@ if you want to directly run these commands in every shell make sure that python 
 |-|-|
 |`musalb init`|initialize (or re-initialize) musalb album directory entering desired album metadata|
 |`musalb reformat`| (after init) apply metadata to every music file |
+|`musalb enumerate`|enumerates tracks in alphabetical order (in file metadata)|
+|`musalb titles`| for each file copies filename an set it as track title (in file metadata)|
