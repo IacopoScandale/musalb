@@ -61,7 +61,7 @@ def enter_album_metadata() -> tuple[str, str, str, str, str]:
   except KeyboardInterrupt:
     sys.exit()
 
-  cover: str = find_cover() if cover_choice in "sSnN" else ""
+  cover: str = find_cover() if cover_choice in "sSyY" else ""
 
   return (album, artist, date, enumerate_choice, cover)
 
