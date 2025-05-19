@@ -70,11 +70,12 @@ def main() -> None:
   args: Namespace = parse_arguments()
 
   # Execute appropriate function based on the command
-  if args.command == "init":
-    init_comm(args.directory)
-  elif args.command == "reformat":
-    reformat_comm(args.directory, args.quiet)
-  elif args.command == "enumerate":
-    enumerate_comm()
-  elif args.command == "titles":
-    titles_comm()
+  match args.command:
+    case "init":
+      init_comm(args.directory)
+    case "reformat":
+      reformat_comm(args.directory, args.quiet)
+    case "enumerate":
+      enumerate_comm()
+    case "titles":
+      titles_comm()
